@@ -1,7 +1,9 @@
 package me.tekkitcommando.minigame;
 
 import me.tekkitcommando.minigame.handler.GameHandler;
+import me.tekkitcommando.minigame.handler.GunHandler;
 import me.tekkitcommando.minigame.handler.ScoreHandler;
+import me.tekkitcommando.minigame.handler.ShopHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -32,6 +34,8 @@ public class Minigame extends JavaPlugin {
 
     private void registerEvents() {
         Bukkit.getServer().getPluginManager().registerEvents(new ScoreHandler(), this);
+        Bukkit.getServer().getPluginManager().registerEvents(new ShopHandler(), this);
+        Bukkit.getServer().getPluginManager().registerEvents(new GunHandler(),this);
     }
 
     private void startGameTimer() {
