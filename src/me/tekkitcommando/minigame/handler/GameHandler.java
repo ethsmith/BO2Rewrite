@@ -42,8 +42,8 @@ public class GameHandler extends BukkitRunnable {
     private void gameStart() {
         GameState.setState(GameState.INGAME_STATE);
         for(Player player : TeamHandler.getPlayers()) {
-            Block redSpawn = Bukkit.getServer().getWorld("world").getBlockAt(1, 1, 1);
-            Block blueSpawn = Bukkit.getServer().getWorld("world").getBlockAt(10, 10, 10);
+            Block redSpawn = Bukkit.getServer().getWorld("world").getBlockAt(410, 63, 223);
+            Block blueSpawn = Bukkit.getServer().getWorld("world").getBlockAt(410, 63, 249);
             if(TeamHandler.getRed().contains(player.getName())) {
                 if (redSpawn != null) {
                     player.teleport(redSpawn.getLocation());
