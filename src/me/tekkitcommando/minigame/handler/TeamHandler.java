@@ -12,7 +12,7 @@ public class TeamHandler {
 
     private ArrayList<String> red = new ArrayList<>();
     private ArrayList<String> blue = new ArrayList<>();
-    private ArrayList<String> players = new ArrayList<>();
+    private static ArrayList<String> players = new ArrayList<>();
 
     public ArrayList<String> getRed() {
         return red;
@@ -22,7 +22,7 @@ public class TeamHandler {
         return blue;
     }
 
-    public ArrayList<String> getPlayers() {
+    public static ArrayList<String> getPlayers() {
         return players;
     }
 

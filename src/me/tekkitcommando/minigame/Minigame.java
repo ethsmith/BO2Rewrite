@@ -1,5 +1,6 @@
 package me.tekkitcommando.minigame;
 
+import me.tekkitcommando.minigame.handler.GameHandler;
 import me.tekkitcommando.minigame.handler.ScoreHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,6 +12,7 @@ import java.util.logging.Logger;
  */
 public class Minigame extends JavaPlugin {
 
+    private static int gameTimerId;
     private Logger logger;
     private ScoreHandler scoreHandler = ScoreHandler.instance;
 
@@ -19,6 +21,7 @@ public class Minigame extends JavaPlugin {
         this.logger = getLogger();
         scoreHandler.registerBoard();
         registerEvents();
+        startGameTimer();
         logger.info("Bukkit Minigame - Enabled!");
     }
 
@@ -27,7 +30,21 @@ public class Minigame extends JavaPlugin {
         logger.info("Bukkit Minigame - Disabled!");
     }
 
-    public void registerEvents() {
+    private void registerEvents() {
         Bukkit.getServer().getPluginManager().registerEvents(new ScoreHandler(), this);
+    }
+
+    private void startGameTimer() {
+        GameHandler.gameTimer = 30;
+        gameTimerId = Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new GameHandler(this), 20l, 20l);
+    }
+
+    private void stopGameTimer() {
+        getServer().getScheduler().cancelTask(gameTimerId);
+    }
+
+    public void restartTimer() {
+        stopGameTimer();
+        startGameTimer();
     }
 }
