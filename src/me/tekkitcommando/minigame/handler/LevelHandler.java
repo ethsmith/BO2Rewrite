@@ -15,43 +15,43 @@ public class LevelHandler {
     private static HashMap<Player, Integer> engineerLevels = new HashMap<>();
     private static HashMap<Player, Integer> arsonistLevels = new HashMap<>();
 
-    public int getInfantryLevel(Player player) {
+    public static int getInfantryLevel(Player player) {
         return infantryLevels.get(player);
     }
 
-    private int getSniperLevel(Player player) {
+    public static int getSniperLevel(Player player) {
         return sniperLevels.get(player);
     }
 
-    private int getAssaultLevel(Player player) {
+    public static int getAssaultLevel(Player player) {
         return assaultLevels.get(player);
     }
 
-    private int getEngineerLevel(Player player) {
+    public static int getEngineerLevel(Player player) {
         return engineerLevels.get(player);
     }
 
-    private int getArsonistLevel(Player player) {
+    public static int getArsonistLevel(Player player) {
         return arsonistLevels.get(player);
     }
 
-    public void setInfantryLevel(Player player, int level) {
+    public static void setInfantryLevel(Player player, int level) {
         infantryLevels.replace(player, infantryLevels.get(player), level);
     }
 
-    public void setSniperLevel(Player player, int level) {
+    public static void setSniperLevel(Player player, int level) {
         sniperLevels.replace(player, sniperLevels.get(player), level);
     }
 
-    public void setAssaultLevel(Player player, int level) {
+    public static void setAssaultLevel(Player player, int level) {
         assaultLevels.replace(player, assaultLevels.get(player), level);
     }
 
-    public void setEngineerLevel(Player player, int level) {
+    public static void setEngineerLevel(Player player, int level) {
         engineerLevels.replace(player, engineerLevels.get(player), level);
     }
 
-    public void setArsonistLevel(Player player, int level) {
+    public static void setArsonistLevel(Player player, int level) {
         arsonistLevels.replace(player, arsonistLevels.get(player), level);
     }
 
