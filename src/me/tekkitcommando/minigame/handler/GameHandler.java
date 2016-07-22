@@ -67,7 +67,9 @@ public class GameHandler extends BukkitRunnable {
         GameState.setState(GameState.RESTARTING_STATE);
     }
 
+
+    // Change to minigame.getConfig().getInt("minPlayers") soon.
     private boolean canStart() {
-        return TeamHandler.getPlayers().size() >= minigame.getConfig().getInt("minPlayers") && GameState.getState() == GameState.LOBBY_STATE;
+        return TeamHandler.getPlayers().size() >=  2 && GameState.getState() == GameState.LOBBY_STATE;
     }
 }

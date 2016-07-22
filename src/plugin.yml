@@ -1,0 +1,10 @@
+name: Tiers
+version: 2.1
+main: me.tekkitcommando.minigame.Minigame
+author: TekkitCommando
+description: BlockOps 2 Plugin.
+
+commands:
+    shop:
+        usage: /<command>
+        description: Opens a shop menu.
