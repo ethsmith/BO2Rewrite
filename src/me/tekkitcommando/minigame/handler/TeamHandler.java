@@ -10,26 +10,26 @@ import java.util.ArrayList;
  */
 public class TeamHandler {
 
-    private ArrayList<String> red = new ArrayList<>();
-    private ArrayList<String> blue = new ArrayList<>();
-    private static ArrayList<String> players = new ArrayList<>();
+    private static ArrayList<String> red = new ArrayList<>();
+    private static ArrayList<String> blue = new ArrayList<>();
+    private static ArrayList<Player> players = new ArrayList<>();
 
-    public ArrayList<String> getRed() {
+    public static ArrayList<String> getRed() {
         return red;
     }
 
-    public ArrayList<String> getBlue() {
+    public static ArrayList<String> getBlue() {
         return blue;
     }
 
-    public static ArrayList<String> getPlayers() {
+    public static ArrayList<Player> getPlayers() {
         return players;
     }
 
     public void populateTeams() {
 
         for(Player player : Bukkit.getOnlinePlayers()) {
-            players.add(player.getName());
+            players.add(player);
 
             if(players.size() % 2 == 0)
                 blue.add(player.getName());

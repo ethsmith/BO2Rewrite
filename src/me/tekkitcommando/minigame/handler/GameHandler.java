@@ -4,6 +4,9 @@ import me.tekkitcommando.minigame.Minigame;
 import me.tekkitcommando.minigame.state.GameState;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 /**
@@ -37,11 +40,25 @@ public class GameHandler extends BukkitRunnable {
         gameTimer -= 1;
     }
 
-    /*
-    TODO: Spawn players at configured team spawn points.
-    */
     private void gameStart() {
         GameState.setState(GameState.INGAME_STATE);
+        for(Player player : TeamHandler.getPlayers()) {
+            Block redSpawn = Bukkit.getServer().getWorld("world").getBlockAt(1, 1, 1);
+            Block blueSpawn = Bukkit.getServer().getWorld("world").getBlockAt(10, 10, 10);
+            if(TeamHandler.getRed().contains(player.getName())) {
+                if (redSpawn != null) {
+                    player.teleport(redSpawn.getLocation());
+                } else {
+                    player.sendMessage(ChatColor.RED + "Couldn't find red team spawn. Please report this to an admin!");
+                }
+            } else {
+                if (blueSpawn != null) {
+                    player.teleport(blueSpawn.getLocation());
+                } else {
+                    player.sendMessage(ChatColor.RED + "Couldn't find blue team spawn. Please report this to an admin!");
+                }
+            }
+        }
     }
 
     /*\
