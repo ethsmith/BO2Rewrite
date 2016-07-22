@@ -4,7 +4,6 @@ import me.tekkitcommando.minigame.Minigame;
 import me.tekkitcommando.minigame.state.GameState;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
