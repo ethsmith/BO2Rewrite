@@ -35,9 +35,9 @@ public class Minigame extends JavaPlugin {
     }
 
     private void registerEvents() {
-        Bukkit.getServer().getPluginManager().registerEvents(new ScoreHandler(), this);
-        Bukkit.getServer().getPluginManager().registerEvents(new ShopHandler(), this);
-        Bukkit.getServer().getPluginManager().registerEvents(new GunHandler(),this);
+        getServer().getPluginManager().registerEvents(new ScoreHandler(), this);
+        getServer().getPluginManager().registerEvents(new ShopHandler(), this);
+        getServer().getPluginManager().registerEvents(new GunHandler(),this);
     }
 
     private void registerCommands() {
