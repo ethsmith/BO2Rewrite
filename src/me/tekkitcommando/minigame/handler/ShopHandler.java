@@ -1,5 +1,6 @@
 package me.tekkitcommando.minigame.handler;
 
+import me.tekkitcommando.minigame.Minigame;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -15,6 +16,8 @@ import org.bukkit.inventory.meta.ItemMeta;
  * Copyright (c) Ethan Smith.
  */
 public class ShopHandler implements Listener {
+
+    private Minigame game = Minigame.instance;
 
     public static void openShopGui(Player player) {
         Inventory inv = Bukkit.createInventory(null, 27, ChatColor.GREEN + "Shop");
@@ -71,21 +74,47 @@ public class ShopHandler implements Listener {
          */
         switch (event.getCurrentItem().getType()) {
             case WOOD_SWORD:
+                if(EconomyHandler.economy.has(player.getName(), game.getConfig().getInt("classes.infantry.price." + LevelHandler.getInfantryLevel(player) + 1))) {
+                    EconomyHandler.economy.withdrawPlayer(player.getName(), game.getConfig().getInt("classes.infantry.price." + LevelHandler.getInfantryLevel(player) + 1));
+                } else {
+                    player.sendMessage(ChatColor.RED + "[Block Ops 2] You can't afford that upgrade.");
+                }
                 player.closeInventory();
                 break;
             case STONE_SWORD:
+                if(EconomyHandler.economy.has(player.getName(), game.getConfig().getInt("classes.assault.price." + LevelHandler.getAssaultLevel(player) + 1))) {
+                    EconomyHandler.economy.withdrawPlayer(player.getName(), game.getConfig().getInt("classes.assault.price." + LevelHandler.getAssaultLevel(player) + 1));
+                } else {
+                    player.sendMessage(ChatColor.RED + "[Block Ops 2] You can't afford that upgrade.");
+                }
                 player.closeInventory();
                 break;
             case GOLD_SWORD:
+                if(EconomyHandler.economy.has(player.getName(), game.getConfig().getInt("classes.sniper.price." + LevelHandler.getSniperLevel(player) + 1))) {
+                    EconomyHandler.economy.withdrawPlayer(player.getName(), game.getConfig().getInt("classes.sniper.price." + LevelHandler.getSniperLevel(player) + 1));
+                } else {
+                    player.sendMessage(ChatColor.RED + "[Block Ops 2] You can't afford that upgrade.");
+                }
                 player.closeInventory();
                 break;
             case IRON_SWORD:
+                if(EconomyHandler.economy.has(player.getName(), game.getConfig().getInt("classes.engineer.price." + LevelHandler.getEngineerLevel(player) + 1))) {
+                    EconomyHandler.economy.withdrawPlayer(player.getName(), game.getConfig().getInt("classes.engineer.price." + LevelHandler.getEngineerLevel(player) + 1));
+                } else {
+                    player.sendMessage(ChatColor.RED + "[Block Ops 2] You can't afford that upgrade.");
+                }
                 player.closeInventory();
                 break;
             case DIAMOND_SWORD:
+                if(EconomyHandler.economy.has(player.getName(), game.getConfig().getInt("classes.arsonist.price." + LevelHandler.getArsonistLevel(player) + 1))) {
+                    EconomyHandler.economy.withdrawPlayer(player.getName(), game.getConfig().getInt("classes.arsonist.price." + LevelHandler.getArsonistLevel(player) + 1));
+                } else {
+                    player.sendMessage(ChatColor.RED + "[Block Ops 2] You can't afford that upgrade.");
+                }
                 player.closeInventory();
                 break;
             default:
+                player.sendMessage(ChatColor.RED + "[Block Ops 2] That is not a valid upgrade!");
                 player.closeInventory();
                 break;
         }

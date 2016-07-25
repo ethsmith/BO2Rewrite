@@ -22,17 +22,15 @@ public class GunHandler implements Listener {
     public void onWeaponDamage(WeaponDamageEntityEvent e) {
         Player player = (Player) e.getDamager();
         if(e.getWeaponTitle().equalsIgnoreCase("carbine")) {
-            setInfantryDamage(player);
-        } else if(e.getWeaponTitle().equalsIgnoreCase("gauss")) {
-            setAssaultDamage(player);
+            e.setDamage((e.getDamage() + LevelHandler.getInfantryLevel(player)) - 1);
+        } else if(e.getWeaponTitle().equalsIgnoreCase("ak-47")) {
+            e.setDamage((e.getDamage() + LevelHandler.getAssaultLevel(player)) - 1);
+        } else if(e.getWeaponTitle().equalsIgnoreCase("hunting")) {
+            e.setDamage((e.getDamage() + LevelHandler.getSniperLevel(player)) - 1);
+        } else if(e.getWeaponTitle().equalsIgnoreCase("toaster")) {
+            e.setDamage((e.getDamage() + LevelHandler.getArsonistLevel(player)) - 1);
+        } else {
+            e.setDamage((e.getDamage() + LevelHandler.getEngineerLevel(player)) - 1);
         }
-    }
-
-    private void setInfantryDamage(Player player) {
-        e.setDamage((e.getDamage() + LevelHandler.getInfantryLevel(player)) - 1);
-    }
-
-    private void setAssaultDamage(Player player) {
-        e.setDamage((e.getDamage() + LevelHandler.getAssaultLevel(player)) - 1);
     }
 }

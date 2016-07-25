@@ -1,10 +1,7 @@
 package me.tekkitcommando.minigame;
 
 import me.tekkitcommando.minigame.command.ShopCommand;
-import me.tekkitcommando.minigame.handler.GameHandler;
-import me.tekkitcommando.minigame.handler.GunHandler;
-import me.tekkitcommando.minigame.handler.ScoreHandler;
-import me.tekkitcommando.minigame.handler.ShopHandler;
+import me.tekkitcommando.minigame.handler.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,6 +12,7 @@ import java.util.logging.Logger;
  */
 public class Minigame extends JavaPlugin {
 
+    public static Minigame instance;
     private static int gameTimerId;
     private Logger logger;
     private ScoreHandler scoreHandler = ScoreHandler.instance;
@@ -25,6 +23,7 @@ public class Minigame extends JavaPlugin {
         scoreHandler.registerBoard();
         registerEvents();
         registerCommands();
+        EconomyHandler.setupEconomy();
         startGameTimer();
         logger.info("Bukkit Minigame - Enabled!");
     }
