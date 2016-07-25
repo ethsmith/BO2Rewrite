@@ -1,5 +1,6 @@
 package me.tekkitcommando.minigame;
 
+import me.tekkitcommando.minigame.command.LevelCommand;
 import me.tekkitcommando.minigame.command.ShopCommand;
 import me.tekkitcommando.minigame.handler.*;
 import org.bukkit.Bukkit;
@@ -41,6 +42,7 @@ public class Minigame extends JavaPlugin {
 
     private void registerCommands() {
         getCommand("shop").setExecutor(new ShopCommand());
+        getCommand("level").setExecutor(new LevelCommand());
     }
 
     private void startGameTimer() {
