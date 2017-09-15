@@ -21,7 +21,7 @@ public class ConfigHandler {
      * Setup config on first time use.
      */
     public void setupConfig(FileConfiguration config) throws IOException {
-        if(!new File(mg.getDataFolder(), "config.yml").exists()) {
+        if (!new File(mg.getDataFolder(), "config.yml").exists()) {
             new File(mg.getDataFolder(), "config.yml").createNewFile();
             config.set("options.minPlayers", 2);
             config.set("options.maxPlayers", 16);

@@ -16,15 +16,15 @@ public class LevelCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String cmdLabel, String[] args) {
-        if(cmd.getName().equalsIgnoreCase("level") && args.length == 0) {
-            if(sender instanceof Player) {
+        if (cmd.getName().equalsIgnoreCase("level") && args.length == 0) {
+            if (sender instanceof Player) {
                 Player player = (Player) sender;
                 player.sendMessage(ChatColor.RED + "Please specify a class.");
             } else {
                 sender.sendMessage("Only a player can use this command.");
             }
-        } else if(cmd.getName().equalsIgnoreCase("level") && args.length > 0) {
-            if(sender instanceof Player) {
+        } else if (cmd.getName().equalsIgnoreCase("level") && args.length > 0) {
+            if (sender instanceof Player) {
                 Player player = (Player) sender;
                 switch (args[0]) {
                     case "infantry":

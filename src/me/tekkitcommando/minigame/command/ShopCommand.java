@@ -13,8 +13,8 @@ public class ShopCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String cmdLabel, String[] args) {
-        if(cmd.getName().equalsIgnoreCase("shop")) {
-            if(sender instanceof Player) {
+        if (cmd.getName().equalsIgnoreCase("shop")) {
+            if (sender instanceof Player) {
                 ShopHandler.openShopGui((Player) sender);
             } else {
                 sender.sendMessage("Only players can use the shop command!");

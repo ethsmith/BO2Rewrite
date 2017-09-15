@@ -11,11 +11,11 @@ public enum GameState {
 
     private static GameState currentState;
 
-    public static void setState(GameState state) {
-        currentState = state;
-    }
-
     public static GameState getState() {
         return currentState;
+    }
+
+    public static void setState(GameState state) {
+        currentState = state;
     }
 }

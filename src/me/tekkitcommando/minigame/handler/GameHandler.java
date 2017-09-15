@@ -13,13 +13,12 @@ import org.bukkit.scheduler.BukkitRunnable;
  */
 public class GameHandler extends BukkitRunnable {
 
+    public static int gameTimer;
     private Minigame minigame;
 
     public GameHandler(Minigame game) {
         minigame = game;
     }
-
-    public static int gameTimer;
 
     public void run() {
 
@@ -41,10 +40,10 @@ public class GameHandler extends BukkitRunnable {
 
     private void gameStart() {
         GameState.setState(GameState.INGAME_STATE);
-        for(Player player : TeamHandler.getPlayers()) {
+        for (Player player : TeamHandler.getPlayers()) {
             Block redSpawn = Bukkit.getServer().getWorld("world").getBlockAt(410, 63, 223);
             Block blueSpawn = Bukkit.getServer().getWorld("world").getBlockAt(410, 63, 249);
-            if(TeamHandler.getRed().contains(player.getName())) {
+            if (TeamHandler.getRed().contains(player.getName())) {
                 if (redSpawn != null) {
                     player.teleport(redSpawn.getLocation());
                 } else {
@@ -70,6 +69,6 @@ public class GameHandler extends BukkitRunnable {
 
     // Change to minigame.getConfig().getInt("minPlayers") soon.
     private boolean canStart() {
-        return TeamHandler.getPlayers().size() >=  2 && GameState.getState() == GameState.LOBBY_STATE;
+        return TeamHandler.getPlayers().size() >= 2 && GameState.getState() == GameState.LOBBY_STATE;
     }
 }

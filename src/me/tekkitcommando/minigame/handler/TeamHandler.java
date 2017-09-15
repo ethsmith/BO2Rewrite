@@ -28,10 +28,10 @@ public class TeamHandler {
 
     public void populateTeams() {
 
-        for(Player player : Bukkit.getOnlinePlayers()) {
+        for (Player player : Bukkit.getOnlinePlayers()) {
             players.add(player);
 
-            if(players.size() % 2 == 0)
+            if (players.size() % 2 == 0)
                 blue.add(player.getName());
             else
                 red.add(player.getName());

@@ -13,7 +13,7 @@ public class EconomyHandler {
 
     public static boolean setupEconomy() {
         RegisteredServiceProvider<Economy> economyProvider = Bukkit.getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
-        if(economyProvider != null) {
+        if (economyProvider != null) {
             economy = economyProvider.getProvider();
             return true;
         }

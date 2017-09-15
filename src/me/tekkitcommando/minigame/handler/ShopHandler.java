@@ -57,14 +57,14 @@ public class ShopHandler implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
-        if(!ChatColor.stripColor(event.getInventory().getName()).equalsIgnoreCase("Shop")) {
+        if (!ChatColor.stripColor(event.getInventory().getName()).equalsIgnoreCase("Shop")) {
             return;
         }
 
         Player player = (Player) event.getWhoClicked();
         event.setCancelled(true);
 
-        if(event.getCurrentItem() == null || event.getCurrentItem().getType() == Material.AIR || !event.getCurrentItem().hasItemMeta()) {
+        if (event.getCurrentItem() == null || event.getCurrentItem().getType() == Material.AIR || !event.getCurrentItem().hasItemMeta()) {
             player.closeInventory();
             return;
         }
@@ -74,7 +74,7 @@ public class ShopHandler implements Listener {
          */
         switch (event.getCurrentItem().getType()) {
             case WOOD_SWORD:
-                if(EconomyHandler.economy.has(player.getName(), game.getConfig().getInt("classes.infantry.price." + LevelHandler.getInfantryLevel(player) + 1))) {
+                if (EconomyHandler.economy.has(player.getName(), game.getConfig().getInt("classes.infantry.price." + LevelHandler.getInfantryLevel(player) + 1))) {
                     EconomyHandler.economy.withdrawPlayer(player.getName(), game.getConfig().getInt("classes.infantry.price." + LevelHandler.getInfantryLevel(player) + 1));
                 } else {
                     player.sendMessage(ChatColor.RED + "[Block Ops 2] You can't afford that upgrade.");
@@ -82,7 +82,7 @@ public class ShopHandler implements Listener {
                 player.closeInventory();
                 break;
             case STONE_SWORD:
-                if(EconomyHandler.economy.has(player.getName(), game.getConfig().getInt("classes.assault.price." + LevelHandler.getAssaultLevel(player) + 1))) {
+                if (EconomyHandler.economy.has(player.getName(), game.getConfig().getInt("classes.assault.price." + LevelHandler.getAssaultLevel(player) + 1))) {
                     EconomyHandler.economy.withdrawPlayer(player.getName(), game.getConfig().getInt("classes.assault.price." + LevelHandler.getAssaultLevel(player) + 1));
                 } else {
                     player.sendMessage(ChatColor.RED + "[Block Ops 2] You can't afford that upgrade.");
@@ -90,7 +90,7 @@ public class ShopHandler implements Listener {
                 player.closeInventory();
                 break;
             case GOLD_SWORD:
-                if(EconomyHandler.economy.has(player.getName(), game.getConfig().getInt("classes.sniper.price." + LevelHandler.getSniperLevel(player) + 1))) {
+                if (EconomyHandler.economy.has(player.getName(), game.getConfig().getInt("classes.sniper.price." + LevelHandler.getSniperLevel(player) + 1))) {
                     EconomyHandler.economy.withdrawPlayer(player.getName(), game.getConfig().getInt("classes.sniper.price." + LevelHandler.getSniperLevel(player) + 1));
                 } else {
                     player.sendMessage(ChatColor.RED + "[Block Ops 2] You can't afford that upgrade.");
@@ -98,7 +98,7 @@ public class ShopHandler implements Listener {
                 player.closeInventory();
                 break;
             case IRON_SWORD:
-                if(EconomyHandler.economy.has(player.getName(), game.getConfig().getInt("classes.engineer.price." + LevelHandler.getEngineerLevel(player) + 1))) {
+                if (EconomyHandler.economy.has(player.getName(), game.getConfig().getInt("classes.engineer.price." + LevelHandler.getEngineerLevel(player) + 1))) {
                     EconomyHandler.economy.withdrawPlayer(player.getName(), game.getConfig().getInt("classes.engineer.price." + LevelHandler.getEngineerLevel(player) + 1));
                 } else {
                     player.sendMessage(ChatColor.RED + "[Block Ops 2] You can't afford that upgrade.");
@@ -106,7 +106,7 @@ public class ShopHandler implements Listener {
                 player.closeInventory();
                 break;
             case DIAMOND_SWORD:
-                if(EconomyHandler.economy.has(player.getName(), game.getConfig().getInt("classes.arsonist.price." + LevelHandler.getArsonistLevel(player) + 1))) {
+                if (EconomyHandler.economy.has(player.getName(), game.getConfig().getInt("classes.arsonist.price." + LevelHandler.getArsonistLevel(player) + 1))) {
                     EconomyHandler.economy.withdrawPlayer(player.getName(), game.getConfig().getInt("classes.arsonist.price." + LevelHandler.getArsonistLevel(player) + 1));
                 } else {
                     player.sendMessage(ChatColor.RED + "[Block Ops 2] You can't afford that upgrade.");

@@ -44,7 +44,7 @@ public class ScoreHandler implements Listener {
 
     @EventHandler
     public void onPlayerKill(EntityDeathEvent e) {
-        if(e.getEntity().getKiller() != null) {
+        if (e.getEntity().getKiller() != null) {
             scores.get(e.getEntity().getKiller()).setScore(scores.get(e.getEntity().getKiller()).getScore() + 1);
         }
     }
